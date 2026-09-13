@@ -267,3 +267,43 @@ fn run_baseline_benchmarks() {
         .threads([1])
         .run_benches();
 }
+
+#[divan::bench(args = [80, 120, 200])]
+fn prose_layout_long_line(bencher: Bencher, width: u16) {
+    let line = ratatui::text::Line::from(
+        "  Read Unicode 日本語 before editing src/long-directory/file.rs. ".repeat(/*n*/ 32),
+    );
+    bencher.bench_local(|| super::prose::ProseLayout::new(black_box(&line), black_box(width)));
+}
+
+#[divan::bench(args = [80, 120, 200])]
+fn prose_layout_short_line(bencher: Bencher, width: u16) {
+    let line = ratatui::text::Line::from("Read src/main.rs");
+    bencher.bench_local(|| super::prose::ProseLayout::new(black_box(&line), black_box(width)));
+}
+
+#[divan::bench]
+fn raw_short_line_paint(bencher: Bencher) {
+    let line = ratatui::text::Line::from("Read src/main.rs");
+    let area = ratatui::layout::Rect::new(
+        /*x*/ 0, /*y*/ 0, /*width*/ 80, /*height*/ 1,
+    );
+    let mut buffer = ratatui::buffer::Buffer::empty(area);
+    bencher.bench_local(|| ratatui::widgets::Widget::render(black_box(&line), area, &mut buffer));
+}
+
+#[divan::bench]
+fn prose_short_line_paint(bencher: Bencher) {
+    let line = ratatui::text::Line::from("Read src/main.rs");
+    let area = ratatui::layout::Rect::new(
+        /*x*/ 0, /*y*/ 0, /*width*/ 80, /*height*/ 1,
+    );
+    let mut buffer = ratatui::buffer::Buffer::empty(area);
+    bencher.bench_local(|| {
+        super::prose::ProseLayout::new(black_box(&line), area.width).paint(
+            area,
+            &mut buffer,
+            /*scroll_rows*/ 0,
+        )
+    });
+}

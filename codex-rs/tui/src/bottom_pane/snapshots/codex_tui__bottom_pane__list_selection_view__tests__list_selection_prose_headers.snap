@@ -1,0 +1,33 @@
+---
+source: tui/src/bottom_pane/list_selection_view.rs
+assertion_line: 1665
+expression: "snapshots.join(\"\\n\\n\")"
+---
+width=32
+                                
+  Choose an approval policy     
+  for this workspace before     
+  continuing                    
+    Read the available          
+    permissions carefully and   
+    keep the final explanation  
+    visible.                    
+                                
+› 1. Read Only                  
+                                
+
+width=80
+                                                                                
+  Choose an approval policy for this workspace before continuing                
+    Read the available permissions carefully and keep the final explanation     
+    visible.                                                                    
+                                                                                
+› 1. Read Only                                                                  
+                                                                                
+
+width=200
+                                                                                                                                                                                                        
+  Choose an approval policy for this workspace before continuing                                                                                                                                        
+    Read the available permissions carefully and keep the final explanation visible.                                                                                                                    
+                                                                                                                                                                                                        
+› 1. Read Only

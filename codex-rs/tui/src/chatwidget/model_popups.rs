@@ -43,8 +43,8 @@ impl ChatWidget {
         let title = title.to_string();
         let subtitle = subtitle.to_string();
         let mut header = ColumnRenderable::new();
-        header.push(Line::from(title.bold()));
-        header.push(Line::from(subtitle.dim()));
+        header.push(crate::render::prose::Prose::new(Line::from(title.bold())));
+        header.push(crate::render::prose::Prose::new(Line::from(subtitle.dim())));
         if let Some(warning) = self.model_menu_warning_line() {
             header.push(warning);
         }
