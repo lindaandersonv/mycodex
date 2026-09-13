@@ -1,0 +1,52 @@
+---
+source: tui/src/render/baseline_tests.rs
+expression: diagnostics
+---
+scenario=long_code_indentation_and_tabs viewport=120x40
+source_bytes=1465 source_lines=14 source_tabs=6
+logical_lines=10 max_logical_columns=448 logical_tabs=6
+logical_lines_wider_than_viewport=3 first_8_line_number_and_width=[(4, 443), (5, 448), (10, 446)]
+measured_wrapped_rows=21 rows_below_viewport=0
+paint=HyperlinkParagraph wrap(trim=false), top viewport, no horizontal scroll
+layout=existing markdown writer
+
+"# Code baseline                                                                                                         "
+"                                                                                                                        "
+"fn main() {                                                                                                             "
+"let tab_indented =                                                                                                      "
+""preserve_spaces_and_full_line_preserve_spaces_and_full_line_preserve_spaces_and_full_line_preserve_spaces_and_full_line"
+"_preserve_spaces_and_full_line_preserve_spaces_and_full_line_preserve_spaces_and_full_line_preserve_spaces_and_full_line"
+"_preserve_spaces_and_full_line_preserve_spaces_and_full_line_preserve_spaces_and_full_line_preserve_spaces_and_full_line"
+"_preserve_spaces_and_full_line_preserve_spaces_and_full_line_";                                                         "
+"    let space_indented =                                                                                                "
+""preserve_spaces_and_full_line_preserve_spaces_and_full_line_preserve_spaces_and_full_line_preserve_spaces_and_full_line"
+"_preserve_spaces_and_full_line_preserve_spaces_and_full_line_preserve_spaces_and_full_line_preserve_spaces_and_full_line"
+"_preserve_spaces_and_full_line_preserve_spaces_and_full_line_preserve_spaces_and_full_line_preserve_spaces_and_full_line"
+"_preserve_spaces_and_full_line_preserve_spaces_and_full_line_";                                                         "
+"println!("{tab_indented} {space_indented}");                                                                            "
+"}                                                                                                                       "
+"                                                                                                                        "
+"alphabeta日本語                                                                                                         " Hidden by multi-width symbols: [(10, " "), (12, " "), (14, " ")]
+"        eight_spaces_then_preserve_spaces_and_full_line_preserve_spaces_and_full_line_preserve_spaces_and_full_line_pres"
+"erve_spaces_and_full_line_preserve_spaces_and_full_line_preserve_spaces_and_full_line_preserve_spaces_and_full_line_pres"
+"erve_spaces_and_full_line_preserve_spaces_and_full_line_preserve_spaces_and_full_line_preserve_spaces_and_full_line_pres"
+"erve_spaces_and_full_line_preserve_spaces_and_full_line_preserve_spaces_and_full_line_                                  "
+"                                                                                                                        "
+"                                                                                                                        "
+"                                                                                                                        "
+"                                                                                                                        "
+"                                                                                                                        "
+"                                                                                                                        "
+"                                                                                                                        "
+"                                                                                                                        "
+"                                                                                                                        "
+"                                                                                                                        "
+"                                                                                                                        "
+"                                                                                                                        "
+"                                                                                                                        "
+"                                                                                                                        "
+"                                                                                                                        "
+"                                                                                                                        "
+"                                                                                                                        "
+"                                                                                                                        "
+"                                                                                                                        "

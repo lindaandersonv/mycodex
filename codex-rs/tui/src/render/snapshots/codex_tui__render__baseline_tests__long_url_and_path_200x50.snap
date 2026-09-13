@@ -1,0 +1,62 @@
+---
+source: tui/src/render/baseline_tests.rs
+expression: diagnostics
+---
+scenario=long_url_and_path viewport=200x50
+source_bytes=2179 source_lines=11 source_tabs=0
+logical_lines=18 max_logical_columns=371 logical_tabs=0
+logical_lines_wider_than_viewport=3 first_8_line_number_and_width=[(4, 369), (6, 369), (7, 371)]
+measured_wrapped_rows=21 rows_below_viewport=0
+paint=HyperlinkParagraph wrap(trim=false), top viewport, no horizontal scroll
+layout=existing markdown writer
+
+"# URL and path baseline                                                                                                                                                                                 "
+"                                                                                                                                                                                                        "
+"The complete URL follows:                                                                                                                                                                               "
+"https://example.invalid/long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-se"
+"gment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-/reference?revision=baseline#L120                               "
+"                                                                                                                                                                                                        "
+"https://example.invalid/long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-se"
+"gment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-/reference?revision=baseline#L120                               "
+"(https://example.invalid/long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-s"
+"egment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segment-/reference?revision=baseline#L120)                             "
+"                                                                                                                                                                                                        "
+"The complete path follows: src/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-         "
+"directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/   "
+"nested-directory/nested-directory/nested-directory//component.rs:120:8                                                                                                                                  "
+"                                                                                                                                                                                                        "
+" Kind      Location                                                                                                                                     Explanation                                     "
+"━━━━━━━━  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+" source    src/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-           Keep the narrative readable beside a long path. "
+"           directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-                                                     "
+"           directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-directory/nested-                                                     "
+"           directory//component.rs:120:8                                                                                                                                                                "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "
+"                                                                                                                                                                                                        "

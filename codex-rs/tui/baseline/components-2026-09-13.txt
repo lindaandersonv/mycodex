@@ -1,0 +1,35 @@
+RUST_MIN_STACK=8388608 NEXTEST_PROFILE=local cargo nextest run --no-fail-fast "$@"
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.56s
+────────────
+ Nextest run ID bac64545-b199-4656-9436-608a5558f0bd with nextest profile: local
+    Starting 1 test across 1 binary (4642 tests skipped)
+       START [         ] (1/1) codex-tui render::baseline_benchmarks::run_baseline_benchmarks
+
+running 1 test
+Timer precision: 30 ns
+codex_tui                                    fastest       │ slowest       │ median        │ mean          │ samples │ iters
+╰─ render                                                  │               │               │               │         │
+   ╰─ baseline_benchmarks                                  │               │               │               │         │
+      ├─ desired_height_fresh_cell                         │               │               │               │         │
+      │  ├─ 80                               3.793 ms      │ 4.188 ms      │ 3.846 ms      │ 3.871 ms      │ 20      │ 20
+      │  ├─ 120                              3.624 ms      │ 3.688 ms      │ 3.651 ms      │ 3.653 ms      │ 20      │ 20
+      │  ╰─ 200                              3.592 ms      │ 3.854 ms      │ 3.605 ms      │ 3.621 ms      │ 20      │ 20
+      ├─ desired_height_reused_cell                        │               │               │               │         │
+      │  ├─ 80                               3.793 ms      │ 3.833 ms      │ 3.804 ms      │ 3.807 ms      │ 20      │ 20
+      │  ├─ 120                              3.636 ms      │ 5.206 ms      │ 3.67 ms       │ 3.78 ms       │ 20      │ 20
+      │  ╰─ 200                              3.586 ms      │ 3.667 ms      │ 3.623 ms      │ 3.622 ms      │ 20      │ 20
+      ├─ file_search_cold_session_lifecycle  13.26 ms      │ 23.72 ms      │ 23 ms         │ 22.54 ms      │ 20      │ 20
+      ├─ file_search_warm_query              576.3 µs      │ 674.1 µs      │ 611 µs        │ 614.9 µs      │ 20      │ 20
+      ├─ markdown_render                                   │               │               │               │         │
+      │  ├─ 80                               15.25 ms      │ 15.69 ms      │ 15.31 ms      │ 15.34 ms      │ 20      │ 20
+      │  ├─ 120                              15.25 ms      │ 15.76 ms      │ 15.3 ms       │ 15.35 ms      │ 20      │ 20
+      │  ╰─ 200                              15.22 ms      │ 15.51 ms      │ 15.29 ms      │ 15.3 ms       │ 20      │ 20
+      ╰─ syntax_highlight_bounded_rust       89.8 ms       │ 90.75 ms      │ 90.29 ms      │ 90.29 ms      │ 20      │ 20
+
+test render::baseline_benchmarks::run_baseline_benchmarks ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 4642 filtered out; finished in 4.38s
+
+        PASS [   4.412s] (1/1) codex-tui render::baseline_benchmarks::run_baseline_benchmarks
+────────────
+     Summary [   4.435s] 1 test run: 1 passed, 4642 skipped

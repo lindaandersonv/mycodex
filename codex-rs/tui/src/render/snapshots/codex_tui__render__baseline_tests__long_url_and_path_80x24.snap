@@ -1,0 +1,36 @@
+---
+source: tui/src/render/baseline_tests.rs
+expression: diagnostics
+---
+scenario=long_url_and_path viewport=80x24
+source_bytes=2179 source_lines=11 source_tabs=0
+logical_lines=44 max_logical_columns=371 logical_tabs=0
+logical_lines_wider_than_viewport=3 first_8_line_number_and_width=[(4, 369), (6, 369), (7, 371)]
+measured_wrapped_rows=56 rows_below_viewport=32
+paint=HyperlinkParagraph wrap(trim=false), top viewport, no horizontal scroll
+layout=existing markdown writer
+
+"# URL and path baseline                                                         "
+"                                                                                "
+"The complete URL follows:                                                       "
+"https://example.invalid/long-segment-long-segment-long-segment-long-segment-long"
+"-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-s"
+"egment-long-segment-long-segment-long-segment-long-segment-long-segment-long-seg"
+"ment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segme"
+"nt-long-segment-/reference?revision=baseline#L120                               "
+"                                                                                "
+"https://example.invalid/long-segment-long-segment-long-segment-long-segment-long"
+"-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-s"
+"egment-long-segment-long-segment-long-segment-long-segment-long-segment-long-seg"
+"ment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segme"
+"nt-long-segment-/reference?revision=baseline#L120                               "
+"(https://example.invalid/long-segment-long-segment-long-segment-long-segment-lon"
+"g-segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-"
+"segment-long-segment-long-segment-long-segment-long-segment-long-segment-long-se"
+"gment-long-segment-long-segment-long-segment-long-segment-long-segment-long-segm"
+"ent-long-segment-/reference?revision=baseline#L120)                             "
+"                                                                                "
+"The complete path follows: src/nested-directory/nested-directory/nested-        "
+"directory/nested-directory/nested-directory/nested-directory/nested-directory/  "
+"nested-directory/nested-directory/nested-directory/nested-directory/nested-     "
+"directory/nested-directory/nested-directory/nested-directory/nested-directory/  "
