@@ -20,6 +20,7 @@ use crate::key_hint::KeyBindingListExt;
 use crate::key_hint::ShortcutHint;
 use crate::key_hint::is_plain_text_key_event;
 use crate::keymap::ListKeymap;
+use crate::render::prose::Prose;
 use crate::render::renderable::ColumnRenderable;
 use crate::render::renderable::Renderable;
 
@@ -368,8 +369,12 @@ impl ListSelectionView {
     ) -> Self {
         let mut header = params.header;
         if params.title.is_some() || params.subtitle.is_some() {
-            let title = params.title.map(|title| Line::from(title.bold()));
-            let subtitle = params.subtitle.map(|subtitle| Line::from(subtitle.dim()));
+            let title = params
+                .title
+                .map(|title| Prose::new(Line::from(title.bold())));
+            let subtitle = params
+                .subtitle
+                .map(|subtitle| Prose::new(Line::from(subtitle.dim())));
             header = Box::new(ColumnRenderable::with([
                 header,
                 Box::new(title),
@@ -1634,6 +1639,34 @@ mod tests {
     fn renders_blank_line_between_subtitle_and_items() {
         let view = make_selection_view(Some("Switch between Codex approval presets"));
         assert_snapshot!("list_selection_spacing_with_subtitle", render_lines(&view));
+    }
+
+    #[test]
+    fn prose_headers_wrap_without_hiding_selection_items() {
+        let (tx_raw, _rx) = unbounded_channel::<AppEvent>();
+        let view = new_view(
+            SelectionViewParams {
+                title: Some("Choose an approval policy for this workspace before continuing".into()),
+                subtitle: Some("  Read the available permissions carefully and keep the final explanation visible.".into()),
+                items: vec![SelectionItem {
+                    name: "Read Only".into(),
+                    ..Default::default()
+                }],
+                ..Default::default()
+            },
+            AppEventSender::new(tx_raw),
+        );
+        let snapshots: Vec<_> = [32, 80, 200]
+            .into_iter()
+            .map(|width| {
+                let rendered = render_lines_with_width(&view, width);
+                assert!(rendered.contains("continuing"));
+                assert!(rendered.contains("visible."));
+                assert!(rendered.contains("Read Only"));
+                format!("width={width}\n{rendered}")
+            })
+            .collect();
+        assert_snapshot!("list_selection_prose_headers", snapshots.join("\n\n"));
     }
 
     #[test]

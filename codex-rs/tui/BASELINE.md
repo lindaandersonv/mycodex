@@ -162,5 +162,69 @@ Step 0 remains open for the Git executor measurement and cold syntax initializat
 Optimized measurements and tighter
 input/paint instrumentation are needed before asserting product performance.
 Retrieval goldens/context budgets belong to their own milestone: no reading-quality
-claim is made here. No layout refactor or panels have started. Full workspace
-tests require separate approval.
+claim is made here. No panels have started. Full workspace tests require
+separate approval.
+
+## Step 1a — opt-in prose foundation
+
+The first layout change introduces `render/prose.rs` and applies it only to
+selection-popup titles/subtitles, model-picker headings, and approval headings.
+Measurement and paint use the same `ProseLayout` rows; painting does not rewrap.
+Short headings borrow the original styled line. Long headings word-wrap with
+continuation indentation and support vertical scrolling. At widths too narrow
+for a single grapheme, a styled ellipsis explicitly signals omitted content.
+
+Raw `Line`/`Span`/string renderables deliberately keep their existing behavior:
+they also carry code, paths, URLs and tables, and cannot safely default to prose.
+The original clipping and transcript baseline snapshots therefore remain intact.
+No I/O, dependencies, app-server API changes or `codex-core` changes are added.
+
+This is **not the Step 1 completion gate**. Remaining stages must add semantic
+policy propagation through markdown, streaming, history measurement and paint;
+Code horizontal navigation and tab preservation; Log folding; PathUrl middle
+truncation; aligned Diff and bounded adaptive Table policies; hyperlink remapping;
+and item/byte-bounded revision/width/mode/theme caches that retain unchanged
+streaming blocks. The stateless heading layout is not that cache. File viewer,
+Git panel and retrieval work must wait for those gates and the outstanding
+baseline measurements above.
+
+Verification: nine new tests cover layout/paint/scroll agreement, continuation
+indentation, styles, Unicode and zero/narrow widths, composition, and popup
+snapshots. The full TUI run executed 4,662 tests: 4,660 passed, one expected heading
+snapshot needed updating, and a worktree lifecycle test timed out under load.
+After reviewing the snapshot, all 50 focused popup/prose/startup tests passed;
+the isolated worktree test passed in 8.7 s. A separate startup-protection test
+passed on nextest's automatic retry and on the focused rerun. No timeouts or
+assertions were relaxed. Full workspace tests were not run.
+
+Comparable debug-profile Divan runs use the reproduction command above, base
+`6b1f27d7baff1b242988b8918ec8170a6fabaa7d`, and this prose candidate. Tables are
+[`prose-before.txt`](baseline/prose-before.txt),
+[`prose-after.txt`](baseline/prose-after.txt), and
+[`prose-after-repeat.txt`](baseline/prose-after-repeat.txt). These are component
+measurements, not release latency or end-to-end p95 evidence.
+
+| Component | Before median | Candidate medians (two runs) |
+| --- | --- | --- |
+| Existing reused-cell height, 80 columns | 4.086 ms | 4.217 / 4.211 ms |
+| Existing markdown, 80 columns | 17.12 ms | 17.26 / 17.39 ms |
+| Existing warm highlighting | 100.8 ms | 101.7 / 101.9 ms |
+| New prose layout, 2 KiB fixture, 80 columns | Not available | 1.199 / 1.203 ms |
+| New prose layout, short heading, 80 columns | Not available | 0.599 / 0.664 µs |
+| Short heading paint, raw vs prose | 9.743 / 9.643 µs (raw control) | 10.52 / 10.58 µs |
+
+The extra width/layout work adds roughly 0.8–0.9 µs to short-heading paint in
+this debug build. Unchanged file-search cold lifecycle measured 23.74 ms before,
+23.73 ms after and 29.63 ms on repeat; warm search measured 0.731 / 0.760 /
+0.810 ms. The repeat and timing outliers need controlled follow-up, not a claim
+that a prose change improved or regressed discovery. No performance gate is
+declared complete from these shared-host measurements.
+
+Live terminal check: a freshly built TUI with an isolated temporary home and
+dummy credentials opened `/theme`, navigated with Down, resized through
+24/40/80/200 columns, and dismissed with Escape. At 24 columns the subtitle
+rendered as `Move up/down to live` / `preview themes`. No model turn was submitted.
+The offline fixture did not finish session startup, so live `/model` verification
+was blocked; this check covers the local selection-popup path, not connected
+model operations. Scoped `just fix -p codex-tui` and `just fmt` passed. Tests were
+not rerun after formatting.

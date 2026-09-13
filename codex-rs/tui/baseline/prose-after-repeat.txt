@@ -1,0 +1,30 @@
+Step 1a after-repeat; 2026-09-13; debug profile; 20 samples; see ../BASELINE.md
+
+codex_tui                                    fastest       │ slowest       │ median        │ mean          │ samples │ iters
+╰─ render                                                  │               │               │               │         │
+   ╰─ baseline_benchmarks                                  │               │               │               │         │
+      ├─ desired_height_fresh_cell                         │               │               │               │         │
+      │  ├─ 80                               4.195 ms      │ 11.84 ms      │ 4.24 ms       │ 4.724 ms      │ 20      │ 20
+      │  ├─ 120                              4.005 ms      │ 4.212 ms      │ 4.029 ms      │ 4.052 ms      │ 20      │ 20
+      │  ╰─ 200                              3.956 ms      │ 19.65 ms      │ 3.985 ms      │ 4.782 ms      │ 20      │ 20
+      ├─ desired_height_reused_cell                        │               │               │               │         │
+      │  ├─ 80                               4.198 ms      │ 4.238 ms      │ 4.211 ms      │ 4.213 ms      │ 20      │ 20
+      │  ├─ 120                              4.019 ms      │ 4.065 ms      │ 4.028 ms      │ 4.03 ms       │ 20      │ 20
+      │  ╰─ 200                              3.959 ms      │ 3.991 ms      │ 3.976 ms      │ 3.976 ms      │ 20      │ 20
+      ├─ file_search_cold_session_lifecycle  14.2 ms       │ 74.18 ms      │ 29.63 ms      │ 32.78 ms      │ 20      │ 20
+      ├─ file_search_warm_query              754.1 µs      │ 999.2 µs      │ 810 µs        │ 803.8 µs      │ 20      │ 20
+      ├─ markdown_render                                   │               │               │               │         │
+      │  ├─ 80                               17.26 ms      │ 17.85 ms      │ 17.39 ms      │ 17.42 ms      │ 20      │ 20
+      │  ├─ 120                              17.52 ms      │ 17.98 ms      │ 17.62 ms      │ 17.67 ms      │ 20      │ 20
+      │  ╰─ 200                              17.2 ms       │ 18.33 ms      │ 17.24 ms      │ 17.42 ms      │ 20      │ 20
+      ├─ prose_layout_long_line                            │               │               │               │         │
+      │  ├─ 80                               1.199 ms      │ 2.156 ms      │ 1.203 ms      │ 1.253 ms      │ 20      │ 20
+      │  ├─ 120                              1.181 ms      │ 1.216 ms      │ 1.188 ms      │ 1.19 ms       │ 20      │ 20
+      │  ╰─ 200                              1.154 ms      │ 1.19 ms       │ 1.159 ms      │ 1.163 ms      │ 20      │ 20
+      ├─ prose_layout_short_line                           │               │               │               │         │
+      │  ├─ 80                               653.7 ns      │ 3.403 µs      │ 663.7 ns      │ 808.7 ns      │ 20      │ 20
+      │  ├─ 120                              587.4 ns      │ 617.4 ns      │ 599.9 ns      │ 600.7 ns      │ 20      │ 160
+      │  ╰─ 200                              586.2 ns      │ 604.9 ns      │ 593.1 ns      │ 593.6 ns      │ 20      │ 160
+      ├─ prose_short_line_paint              10.2 µs       │ 66.98 µs      │ 10.58 µs      │ 13.84 µs      │ 20      │ 20
+      ├─ raw_short_line_paint                9.433 µs      │ 15.67 µs      │ 9.643 µs      │ 9.956 µs      │ 20      │ 20
+      ╰─ syntax_highlight_bounded_rust       101.4 ms      │ 312.7 ms      │ 101.9 ms      │ 113.1 ms      │ 20      │ 20

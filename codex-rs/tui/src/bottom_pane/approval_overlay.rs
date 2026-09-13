@@ -36,6 +36,7 @@ use crate::keymap::ApprovalKeymap;
 use crate::keymap::ListAction;
 use crate::keymap::ListKeymap;
 use crate::render::highlight::highlight_bash_to_lines;
+use crate::render::prose::Prose;
 use crate::render::renderable::ColumnRenderable;
 use crate::render::renderable::Renderable;
 use codex_app_server_protocol::AdditionalPermissionProfile;
@@ -296,7 +297,7 @@ impl ApprovalOverlay {
         };
 
         let header = Box::new(ColumnRenderable::with([
-            Line::from(title.bold()).into(),
+            Prose::new(Line::from(title.bold())).into(),
             Line::from("").into(),
             header,
         ]));

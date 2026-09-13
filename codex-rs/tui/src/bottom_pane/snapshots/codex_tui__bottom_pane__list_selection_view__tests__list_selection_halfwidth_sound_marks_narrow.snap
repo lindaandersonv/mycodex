@@ -1,10 +1,12 @@
 ---
 source: tui/src/bottom_pane/list_selection_view.rs
+assertion_line: 2668
 expression: rendered
 ---
 width 20:
                     
   Halfwidth sound   
+  marks             
                     
 › 1. abｶﾞc           
             dakute  
@@ -20,7 +22,8 @@ width 20:
 
 width 24:
                         
-  Halfwidth sound mark  
+  Halfwidth sound       
+  marks                 
                         
 › 1. abｶﾞc  dakuten      
             descriptio  

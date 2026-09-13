@@ -1,0 +1,66 @@
+---
+source: tui/src/render/prose_tests.rs
+assertion_line: 133
+expression: "snapshots.join(\"\\n\\n\")"
+---
+Buffer {
+    area: Rect { x: 0, y: 0, width: 16, height: 11 },
+    content: [
+        "  Read          ",
+        "  carefully: 日 ", // hidden by multi-width symbols: [(14, " ")]
+        "  本語 café and ", // hidden by multi-width symbols: [(3, " "), (5, " ")]
+        "  Unicode text  ",
+        "  remain        ",
+        "  scannable.    ",
+        "  src/long-     ",
+        "  directory-    ",
+        "  name/         ",
+        "  important_suff",
+        "  ix.rs:120     ",
+    ],
+    styles: [
+        x: 0, y: 0, fg: Reset, bg: Reset, underline: Reset, modifier: BOLD,
+        x: 6, y: 0, fg: Reset, bg: Reset, underline: Reset, modifier: NONE,
+        x: 2, y: 1, fg: Reset, bg: Reset, underline: Reset, modifier: BOLD,
+        x: 13, y: 1, fg: Reset, bg: Reset, underline: Reset, modifier: NONE,
+        x: 2, y: 6, fg: Cyan, bg: Reset, underline: Reset, modifier: NONE,
+        x: 11, y: 6, fg: Reset, bg: Reset, underline: Reset, modifier: NONE,
+        x: 2, y: 7, fg: Cyan, bg: Reset, underline: Reset, modifier: NONE,
+        x: 12, y: 7, fg: Reset, bg: Reset, underline: Reset, modifier: NONE,
+        x: 2, y: 8, fg: Cyan, bg: Reset, underline: Reset, modifier: NONE,
+        x: 7, y: 8, fg: Reset, bg: Reset, underline: Reset, modifier: NONE,
+        x: 2, y: 9, fg: Cyan, bg: Reset, underline: Reset, modifier: NONE,
+        x: 0, y: 10, fg: Reset, bg: Reset, underline: Reset, modifier: NONE,
+        x: 2, y: 10, fg: Cyan, bg: Reset, underline: Reset, modifier: NONE,
+        x: 11, y: 10, fg: Reset, bg: Reset, underline: Reset, modifier: NONE,
+    ]
+}
+
+Buffer {
+    area: Rect { x: 0, y: 0, width: 80, height: 2 },
+    content: [
+        "  Read carefully: 日本語 café and Unicode text remain scannable. src/long-      ", // hidden by multi-width symbols: [(19, " "), (21, " "), (23, " ")]
+        "  directory-name/important_suffix.rs:120                                        ",
+    ],
+    styles: [
+        x: 0, y: 0, fg: Reset, bg: Reset, underline: Reset, modifier: BOLD,
+        x: 18, y: 0, fg: Reset, bg: Reset, underline: Reset, modifier: NONE,
+        x: 65, y: 0, fg: Cyan, bg: Reset, underline: Reset, modifier: NONE,
+        x: 74, y: 0, fg: Reset, bg: Reset, underline: Reset, modifier: NONE,
+        x: 2, y: 1, fg: Cyan, bg: Reset, underline: Reset, modifier: NONE,
+        x: 40, y: 1, fg: Reset, bg: Reset, underline: Reset, modifier: NONE,
+    ]
+}
+
+Buffer {
+    area: Rect { x: 0, y: 0, width: 200, height: 1 },
+    content: [
+        "  Read carefully: 日本語 café and Unicode text remain scannable. src/long-directory-name/important_suffix.rs:120                                                                                        ", // hidden by multi-width symbols: [(19, " "), (21, " "), (23, " ")]
+    ],
+    styles: [
+        x: 0, y: 0, fg: Reset, bg: Reset, underline: Reset, modifier: BOLD,
+        x: 18, y: 0, fg: Reset, bg: Reset, underline: Reset, modifier: NONE,
+        x: 65, y: 0, fg: Cyan, bg: Reset, underline: Reset, modifier: NONE,
+        x: 112, y: 0, fg: Reset, bg: Reset, underline: Reset, modifier: NONE,
+    ]
+}

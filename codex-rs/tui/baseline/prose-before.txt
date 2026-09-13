@@ -1,0 +1,20 @@
+Step 1a before; 2026-09-13; debug profile; 20 samples; see ../BASELINE.md
+
+codex_tui                                    fastest       │ slowest       │ median        │ mean          │ samples │ iters
+╰─ render                                                  │               │               │               │         │
+   ╰─ baseline_benchmarks                                  │               │               │               │         │
+      ├─ desired_height_fresh_cell                         │               │               │               │         │
+      │  ├─ 80                               4.065 ms      │ 4.546 ms      │ 4.147 ms      │ 4.168 ms      │ 20      │ 20
+      │  ├─ 120                              3.874 ms      │ 3.969 ms      │ 3.898 ms      │ 3.912 ms      │ 20      │ 20
+      │  ╰─ 200                              3.822 ms      │ 3.922 ms      │ 3.851 ms      │ 3.856 ms      │ 20      │ 20
+      ├─ desired_height_reused_cell                        │               │               │               │         │
+      │  ├─ 80                               4.044 ms      │ 4.114 ms      │ 4.086 ms      │ 4.081 ms      │ 20      │ 20
+      │  ├─ 120                              3.859 ms      │ 3.979 ms      │ 3.889 ms      │ 3.9 ms        │ 20      │ 20
+      │  ╰─ 200                              3.818 ms      │ 3.894 ms      │ 3.843 ms      │ 3.852 ms      │ 20      │ 20
+      ├─ file_search_cold_session_lifecycle  22.85 ms      │ 24.31 ms      │ 23.74 ms      │ 23.67 ms      │ 20      │ 20
+      ├─ file_search_warm_query              671.2 µs      │ 804.9 µs      │ 730.9 µs      │ 738.8 µs      │ 20      │ 20
+      ├─ markdown_render                                   │               │               │               │         │
+      │  ├─ 80                               17.1 ms       │ 17.73 ms      │ 17.12 ms      │ 17.18 ms      │ 20      │ 20
+      │  ├─ 120                              17.05 ms      │ 17.59 ms      │ 17.09 ms      │ 17.12 ms      │ 20      │ 20
+      │  ╰─ 200                              17.07 ms      │ 17.14 ms      │ 17.09 ms      │ 17.09 ms      │ 20      │ 20
+      ╰─ syntax_highlight_bounded_rust       100.6 ms      │ 101.3 ms      │ 100.8 ms      │ 100.8 ms      │ 20      │ 20
