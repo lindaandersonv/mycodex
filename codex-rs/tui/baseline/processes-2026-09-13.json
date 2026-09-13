@@ -1,0 +1,99 @@
+{
+  "scope": "local subprocess including launch; NOT WorkspaceCommandExecutor or remote; warm OS cache; no concurrent build",
+  "fixture": {
+    "visible_sources": 1000,
+    "ignored_sources": 1,
+    "binary_bytes": 4,
+    "large_text_bytes": 8388608,
+    "git_branch": "baseline",
+    "git_history": "unborn"
+  },
+  "profile": "dev debug=limited",
+  "platform": "Linux-4.19.0-gvisor-x86_64-with-glibc2.39",
+  "results": {
+    "git_branch_process": {
+      "first_ms": 2.762491,
+      "median_ms": 2.359406,
+      "p95_ms": 2.507581,
+      "samples_ms": [
+        2.507581,
+        2.755571,
+        2.432501,
+        2.472252,
+        2.329411,
+        2.384361,
+        2.337701,
+        2.335921,
+        2.430081,
+        2.449751,
+        2.433091,
+        2.381111,
+        2.317752,
+        2.330911,
+        2.306861,
+        2.249141,
+        2.251511,
+        2.223851,
+        2.280421,
+        2.495751
+      ],
+      "max_output_bytes": 9
+    },
+    "git_status_process": {
+      "first_ms": 4.101302,
+      "median_ms": 3.2493565,
+      "p95_ms": 3.440881,
+      "samples_ms": [
+        3.155241,
+        3.184412,
+        3.248741,
+        3.141302,
+        3.209671,
+        3.227962,
+        3.259381,
+        3.955032,
+        3.249972,
+        3.440881,
+        3.303462,
+        3.348501,
+        3.283752,
+        3.255552,
+        3.428051,
+        3.301292,
+        3.218211,
+        3.182742,
+        3.203121,
+        3.193822
+      ],
+      "max_output_bytes": 17084
+    },
+    "file_search_cli_cold_index": {
+      "first_ms": 37.831167,
+      "median_ms": 28.4385385,
+      "p95_ms": 28.942044,
+      "samples_ms": [
+        28.058543,
+        26.835183,
+        28.304113,
+        28.489673,
+        28.435714,
+        27.769143,
+        27.555622,
+        27.511252,
+        27.972823,
+        28.521754,
+        27.365292,
+        27.902933,
+        29.236633,
+        28.441363,
+        28.877094,
+        28.515263,
+        28.485574,
+        28.781063,
+        28.942044,
+        28.710203
+      ],
+      "max_output_bytes": 1947
+    }
+  }
+}

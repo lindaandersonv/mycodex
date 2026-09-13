@@ -1,0 +1,36 @@
+---
+source: tui/src/render/baseline_tests.rs
+expression: diagnostics
+---
+scenario=multi_file_diff viewport=80x24
+source_bytes=562 source_lines=12 source_tabs=2
+logical_lines=20 max_logical_columns=297 logical_tabs=0
+logical_lines_wider_than_viewport=1 first_8_line_number_and_width=[(2, 297)]
+measured_wrapped_rows=24 rows_below_viewport=0
+paint=HyperlinkParagraph wrap(trim=false), top viewport, no horizontal scroll
+layout=existing create_diff_summary; source diagnostics cover patch/add/delete text
+
+"• Edited 3 files (+5 -2)                                                        "
+"  └                                                                             "
+"notes/long-directory/long-directory/long-directory/long-directory/long-directory"
+"/long-directory/long-directory/long-directory/long-directory/long-directory/long"
+"-directory/long-directory/long-directory/long-directory/long-directory/long-dire"
+"ctory/long-directory/long-directory/added.txt (+3 -0)                           "
+"    1 +first line                                                               "
+"    2 +    indented 日本語 café                                                 " Hidden by multi-width symbols: [(21, " "), (23, " "), (25, " ")]
+"    3 +last line                                                                "
+"                                                                                "
+"  └ obsolete.txt (+0 -1)                                                        "
+"    1 -obsolete entry                                                           "
+"                                                                                "
+"  └ src/main.rs (+2 -1)                                                         "
+"    1  fn main() {                                                              "
+"    2 -    old_call();                                                          "
+"    2 +    let value = "long_diff_value_long_diff_value_long_diff_value_long_dif"
+"       f_value_long_diff_value_long_diff_value_long_diff_value_long_diff_value_l"
+"       ong_diff_value_long_diff_value_long_diff_value_long_diff_value_long_diff_"
+"       value_long_diff_value_long_diff_value_long_diff_value_long_diff_value_lon"
+"       g_diff_value_long_diff_value_long_diff_value_long_diff_value_long_diff_va"
+"       lue_long_diff_value_long_diff_value_";                                   "
+"    3 +    new_call(value);                                                     "
+"    4  }                                                                        "

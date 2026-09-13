@@ -163,6 +163,7 @@ arboard = { workspace = true }
 
 
 [dev-dependencies]
+divan = { workspace = true }
 app_test_support = { workspace = true }
 codex-mcp = { workspace = true }
 core_test_support = { workspace = true }

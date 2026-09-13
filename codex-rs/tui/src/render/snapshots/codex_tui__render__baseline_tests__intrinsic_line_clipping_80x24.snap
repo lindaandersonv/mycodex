@@ -1,0 +1,31 @@
+---
+source: tui/src/render/baseline_tests.rs
+expression: snapshot
+---
+viewport=80x24 logical_columns=436 desired_height=1
+paint=Line Renderable; implicit clipping, no wrap or horizontal scroll
+
+"src/nested-directory/nested-directory/nested-directory/nested-directory/nested-d"
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "
+"                                                                                "

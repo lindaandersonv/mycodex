@@ -4,6 +4,14 @@ pub(crate) mod highlight;
 pub(crate) mod line_utils;
 pub(crate) mod renderable;
 
+#[cfg(test)]
+#[path = "baseline_benchmark_tests.rs"]
+mod baseline_benchmarks;
+
+#[cfg(test)]
+#[path = "baseline_tests.rs"]
+mod baseline_tests;
+
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct Insets {
     left: u16,
